@@ -18,7 +18,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           enable-AzPSSession: true
           
-      - name: Azure CLI script
+      - name: Azure CLI script1
         uses: azure/cli@v2
         with:
           azcliversion: latest
