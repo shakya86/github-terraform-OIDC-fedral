@@ -10,6 +10,8 @@ jobs:
     name: deploy to staging
     runs-on: ubuntu-22.04      
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
       - name: Azure login
         uses: azure/login@v3
         with:
@@ -23,4 +25,16 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az account show    
+            az account show
+            
+      - name: Terraform Init
+        run: terraform init
+        
+      - name: Terraform plan
+        run: terraform plan
+        
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+
+        
+      
